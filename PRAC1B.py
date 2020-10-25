@@ -1,4 +1,4 @@
-'''Practical 1 (b)Write a program to perform the Matrix addition, Multiplication and Transpose
+'''Practical 1 (B)Write a program to perform the Matrix addition, Multiplication and Transpose
 Operation.'''
 Matrix1 = [[3, 4, -6], 
       [12,71,24], 
