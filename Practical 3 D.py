@@ -1,23 +1,44 @@
-def factorial(number):
-    if number < 0:
-        print('Invalid entry! Cannot find factorial of a negative number')
-        return -1
-    if number == 1 or number == 0:
-        return 1
+'''Practical 3(d)WAP to calculate factorial and to compute the factors of a given no. (i) using
+recursion, (ii) using iteration'''
+factorial = 1
+n = int(input('Enter Number: '))
+for i in range(1,n+1):
+    factorial = factorial * i
+
+print(f'Factorial is : {factorial}')
+
+fact = []
+for i in range(1,n+1):
+    if (n/i).is_integer():
+        fact.append(i)
+        
+print(f'Factors of the given numbers is : {fact}')
+
+factorial = 1
+index = 1
+n = int(input("Enter number : "))
+def calculate_factorial(n,factorial,index):
+    if index == n:
+        print(f'Factorial is : {factorial}')
+        return True
     else:
-        return number * factorial(number - 1)
+        index = index + 1
+        calculate_factorial(n,factorial * index,index)
+calculate_factorial(n,factorial,index)
 
-    def factorial_iteration(number):
-        if number < 0:
-            print('Invalid entry! Cannot find factorial of a negative number')
-        return -1
-    fact = 1
-    while(number > 0):
-        fact = fact * number
-        number = number - 1
-    return fact
-
-    if _name_ == '_main_':
-        userInput = 8
-    print('Factorial using Recursion of', userInput, 'is:', factorial(userInput))
-    print('Factorial using Iteration of', userInput, 'is:', factorial_iteration(userInput))
+fact = []
+def calculate_factors(n,factors,index):
+    if index == n+1:
+        print(f'Factors of the given numbers is : {factors}')
+        return True
+    elif (n/index).is_integer():
+        factors.append(index)
+        index += 1
+        calculate_factors(n,factors,index)
+    else:
+        index += 1
+        calculate_factors(n,factors,index)
+        
+index = 1
+factors = []
+calculate_factors(n,factors,index)
